@@ -2,13 +2,14 @@ class PostImage < ApplicationRecord
   has_one_attached :image
   belongs_to :user
 
-  # def get_image
-  #   if image.attached?
-  #     image
-  #   else
-  #     'no_image.jpg'
-  #   end
-  # end
+
+  def get_image
+    if image.attached?
+      image
+    else
+      'no_image.jpg'
+    end
+  end
 
   def get_image
     unless image.attached?
@@ -17,6 +18,5 @@ class PostImage < ApplicationRecord
     end
     image
   end
-
 
 end
